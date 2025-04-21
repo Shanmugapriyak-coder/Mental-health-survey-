@@ -9,7 +9,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 import numpy as np
 import pandas as pd
 
-ohe_columns = joblib.load(r'C:\Users\MY Laptop\Desktop\guvi_class\mental health survey\ohe_columns.pkl')
+ohe_columns = joblib.load(r'ohe_columns.pkl')
 
 class CustomPreprocessor(BaseEstimator, TransformerMixin):
     def __init__(self):
@@ -87,14 +87,14 @@ def load_model():
     output_size = 1
     model = DNN(input_size, hidden_size, output_size)
     # model.load_state_dict(torch.load('model/mental_health_dnn.pth'))
-    model.load_state_dict(torch.load(r'C:\Users\MY Laptop\Desktop\guvi_class\mental health survey\mental_health_dnn.pth'))
+    model.load_state_dict(torch.load(r'mental_health_dnn.pth'))
     model.eval()
     return model
 
 @st.cache_resource
 def load_pipeline():
     # return joblib.load('preprocessor.pkl')
-    return joblib.load(r'C:\Users\MY Laptop\Desktop\guvi_class\mental health survey\preprocessor.pkl')
+    return joblib.load(r'preprocessor.pkl')
 
 
 
